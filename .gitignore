@@ -54,3 +54,6 @@ docs/_build/
 
 #DB
 db.sqlite3
+
+# Node
+assets/node_modules

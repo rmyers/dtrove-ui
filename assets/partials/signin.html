@@ -1,0 +1,16 @@
+<div class="container">
+
+  <form class="form-signin" name="loginForm" ng-submit="submit()">
+    <h2 class="form-signin-heading">Account Signin</h2>
+    <div class="alert alert-error" ng-show="error">
+      {{ error }}
+    </div>
+    <input type="email" ng-model="user.email" class="input-block-level" placeholder="Email" required />
+    <input type="password" ng-model="user.password" ng-minlength="3" class="input-block-level" title="Password" placeholder="Password" required />
+    <label class="checkbox">
+	  <input type="checkbox" value="remember-me"> Remember me
+	</label>
+    <input class="btn btn-small btn-primary" type="submit" value="Sign in" ng-disabled="!loginForm.$valid">
+    <p>Or <a href="/signup" data-dismiss="modal">Sign Up</a> for a trial account.</p>
+  </form>
+</div>
