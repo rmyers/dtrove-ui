@@ -3,8 +3,8 @@ from django.contrib import admin
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'raxui.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^$', 'raxui.views.index', name='index'),
+    url(r'^dashboard/', 'raxui.views.dashboard', name='dashboard'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

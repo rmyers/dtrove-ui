@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '55zul3-(hh#16et_%kbgm+c4c240@*4m##lgo=@m_8c&39+96&'
+SECRET_KEY = '2mux&9x+nb$dn(&px%)+gxv=a193e_rb-dr%mtfmi4!qjz8fps'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,6 +36,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'raxui',
+    'dtrove',
+    'djcelery',
+    'openstack_auth',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,3 +86,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# OPENSTACK AUTH
+OPENSTACK_KEYSTONE_URL = "https://identity.api.rackspacecloud.com/v2.0"
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'raxui.auth.RaxBackend',
+]
+AVAILABLE_REGIONS = [
+    ("https://identity.api.rackspacecloud.com/v2.0", 'ORD'),
+    ("https://identity.api.rackspacecloud.com/v2.0", 'DFW'),
+]
+
+# Add request to the context processors, it really should be a default
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
