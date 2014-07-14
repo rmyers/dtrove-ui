@@ -57,3 +57,6 @@ db.sqlite3
 
 # Node
 assets/node_modules
+
+# Static Root
+static/

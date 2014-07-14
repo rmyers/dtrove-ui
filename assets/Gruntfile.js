@@ -18,23 +18,23 @@ module.exports = function(grunt) {
     concat: {
       app: {
         src: apps,
-        dest: '../static/js/app.js'
+        dest: '../raxui/static/js/app.js'
       },
       vendor: {
         src: deps,
-        dest: '../static/js/vendor.js'
+        dest: '../raxui/static/js/vendor.js'
       }
     },
 
     // Production-mode - minify app and vendor
-    min: {
+    uglify: {
       app: {
 	    src: apps,
-        dest: '../static/js/app.js'
+        dest: '../raxui/static/js/app.js'
       },
       vendor: {
         src: deps,
-        dest: '../static/js/vendor.js'
+        dest: '../raxui/static/js/vendor.js'
       }
     },
 
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
             paths: ["assets/bootstrap/less"]
         },
         files: {
-            "../static/css/main.css": "less/layout.less"
+            "../raxui/static/css/main.css": "less/layout.less"
         }
       },
       prod: {
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
             compress: true
         },
         files: {
-            "../static/css/main.css": "less/layout.less"
+            "../raxui/static/css/main.css": "less/layout.less"
         }
       }
     },
@@ -103,7 +103,8 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-jasmine-runner');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 };
