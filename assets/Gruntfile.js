@@ -62,9 +62,7 @@ module.exports = function(grunt) {
     copy: {
       dist: {
         files: {
-          "../raxui/static/img/": "img/*",
-          "../raxui/static/font/": "font-awesome/font/*",
-          "../raxui/static/partials/": "partials/*"
+          "../raxui/static/": ["img/*", "font-awesome/font/*", "partials/*"]
         }
       }
     },
@@ -108,4 +106,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 };

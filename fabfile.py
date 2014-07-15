@@ -50,11 +50,11 @@ def install():
 def watch():
     """Grunt watch development files"""
     with lcd('assets'):
-        local('node_modules/grunt-cli/bin/grunt concat less:dev watch')
+        local('node_modules/grunt-cli/bin/grunt copy concat less:dev watch')
 
 
 @task
 def compile():
     """Compile assets for production."""
     with lcd('assets'):
-        local('node_modules/grunt-cli/bin/grunt less:prod uglify')
+        local('node_modules/grunt-cli/bin/grunt copy less:prod uglify')
