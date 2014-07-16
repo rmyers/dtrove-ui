@@ -17,20 +17,23 @@
            <td>{{ cluster.size }}</td>
            <td>{{ cluster.created }}</td>
        </tr>
+       <tfoot>
        <tr>
-           <td colspan="4">
+           <th colspan="4">
              <form class="form-inline" role="form">
                  <label class="sr-only" for="name">Cluster Name</label>
-                 <input id="name" class="form-control" type="text" ng-model="newCluster.name" placeholder="Cluster Name" />
+                 <input id="name" class="form-control" type="text" ng-required="true" ng-model="newCluster.name" placeholder="Cluster Name" />
                  <label class="sr-only" for="size">Number of Nodes</label>
-                 <input id="size" class="form-control" type="text" ng-model="newCluster.size" placeholder="Number of Nodes" />
+                 <input id="size" class="form-control" type="number" max="10" ng-required="true" ng-model="newCluster.size" placeholder="Nubmer of Nodes" />
                  <label class="sr-only" for="datastore">Datastore</label>
-                 <select id="datastore" class="form-control" ng-model="newCluster.datastore_id" required ng-options="datastore.name for datastore in datastores">
+                 <select id="datastore" class="form-control" ng-model="newCluster.datastore" required ng-options="datastore.name for datastore in datastores">
+                     <option value="">Please Select a Datastore</option>
                  </select>
                  <button type="submit" class="btn btn-primary" ng-click="submit()">Create Cluster</button>
              </form>
-           </td>
+         </th>
        </tr>
+      </tfoot>
       </tbody>
     </table>
   </div>

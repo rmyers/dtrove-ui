@@ -13,6 +13,7 @@ function DashboardController($resource, $scope, Cluster, Datastore) {
   $scope.newCluster = new Cluster();
   $scope.submit = function () {
     var new_cluster = new Cluster($scope.newCluster);
+    new_cluster.datastore_id = new_cluster.datastore.id;
     new_cluster.$save();
     $scope.clusters.push(new_cluster);
     $scope.newCluster = new Cluster();
