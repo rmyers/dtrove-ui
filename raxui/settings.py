@@ -88,7 +88,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # OPENSTACK AUTH
-OPENSTACK_KEYSTONE_URL = "https://identity.api.rackspacecloud.com/v2.0"
+OS_AUTH_URL = "https://identity.api.rackspacecloud.com/v2.0"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'raxui.auth.RaxBackend',
@@ -103,3 +103,15 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
+    }
+}
+
+try:
+    from .secrets import *
+except:  # noqa
+    pass

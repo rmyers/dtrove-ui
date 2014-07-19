@@ -60,3 +60,6 @@ assets/node_modules
 
 # Static Root
 /static
+
+# Secrets
+secrets.py
