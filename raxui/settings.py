@@ -88,7 +88,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # OPENSTACK AUTH
-OS_AUTH_URL = "https://identity.api.rackspacecloud.com/v2.0"
+# Fake Auth endpoint
+OS_AUTH_URL = 'http://localhost:8000/osauth/v2.0'
+# For Production
+# OS_AUTH_URL = "https://identity.api.rackspacecloud.com/v2.0"
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'raxui.auth.RaxBackend',
